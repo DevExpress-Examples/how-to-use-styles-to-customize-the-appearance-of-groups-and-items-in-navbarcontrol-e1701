@@ -1,0 +1,60 @@
+﻿<Window x:Class="VisualStylesOfGroupsAndItems.Window1" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        Title="Window1" Height="400" Width="200" 
+        xmlns:dxn="http://schemas.devexpress.com/winfx/2008/xaml/navbar">
+
+    <Window.Resources>
+        <Style x:Key="ViewStyle" TargetType="dxn:NavBarViewBase">
+            <Setter Property="GroupLayoutSettings" Value="{dxn:NavBarLayoutSettings TextHorizontalAlignment=Center}" />
+            <Setter Property="GroupFontSettings" Value="{dxn:NavBarFontSettings FontStyle=Italic,FontSize=25}"  />
+            <Setter Property="ItemFontSettings" Value="{dxn:NavBarFontSettings FontStyle=Oblique,FontSize=20}"  />
+            <Setter Property="ItemLayoutSettings" Value="{dxn:NavBarLayoutSettings TextHorizontalAlignment=Right}" />
+        </Style>
+
+        <Style x:Key="GroupStyle" TargetType="dxn:NavBarGroup">
+            <Setter Property="ItemLayoutSettings" Value="{dxn:NavBarLayoutSettings TextHorizontalAlignment=Center}" />
+            <Setter Property="ItemFontSettings" Value="{dxn:NavBarFontSettings FontStyle=Italic}" />
+            <Setter Property="LayoutSettings" Value="{dxn:NavBarLayoutSettings TextHorizontalAlignment=Center}"/>
+            <Setter Property="FontSettings" Value="{dxn:NavBarFontSettings FontStyle=Oblique,FontWeight=ExtraLight}" />
+        </Style>
+
+        <Style x:Key="ItemStyle" TargetType="dxn:NavBarItem">
+            <Setter Property="LayoutSettings" Value="{dxn:NavBarLayoutSettings TextHorizontalAlignment=Left}" />
+            <Setter Property="FontSettings" Value="{dxn:NavBarFontSettings FontWeight=Bold}"/>
+        </Style>
+        <Style x:Key="ItemVisualStyle" TargetType="{x:Type dxn:NavBarItemControl}">
+            <Setter Property="Control.Foreground" Value ="Magenta"/>
+        </Style>
+        <Style x:Key="GroupVisualStyle" TargetType="{x:Type ButtonBase}">
+            <Setter Property="Control.Foreground" Value ="Yellow"/>
+        </Style>
+    </Window.Resources>
+
+    <DockPanel Margin="5">
+
+        <dxn:NavBarControl Name="navBarControl1">
+            <dxn:NavBarControl.View>
+                <dxn:ExplorerBarView Style="{StaticResource ViewStyle}"  />
+            </dxn:NavBarControl.View>
+            <dxn:NavBarControl.Groups>
+                <dxn:NavBarGroup Header="Group1">
+                    <dxn:NavBarItem Content="Item11"/>
+                </dxn:NavBarGroup>
+                <dxn:NavBarGroup Header="Group2">
+                    <dxn:NavBarItem Content="Item21"/>
+                </dxn:NavBarGroup>
+                <dxn:NavBarGroup Header="Group3" Style="{StaticResource GroupStyle}">
+                    <dxn:NavBarItem Content="Item31"/>
+                    <dxn:NavBarItem Content="Item32"/>
+                </dxn:NavBarGroup>
+                <dxn:NavBarGroup Header="Group4"  VisualStyle="{StaticResource GroupVisualStyle}">
+                    <dxn:NavBarItem Content="Item41"/>
+                    <dxn:NavBarItem Content="Item42" Style="{StaticResource ItemStyle}"/>
+                    <dxn:NavBarItem Content="Item43"  VisualStyle="{StaticResource ItemVisualStyle}"/>
+                </dxn:NavBarGroup>
+            </dxn:NavBarControl.Groups>
+        </dxn:NavBarControl>
+
+    </DockPanel>
+</Window>
