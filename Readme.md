@@ -1,3 +1,8 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [Window1.xaml](./CS/VisualStylesOfGroupsAndItems/Window1.xaml) (VB: [Window1.xaml](./VB/VisualStylesOfGroupsAndItems/Window1.xaml))
+<!-- default file list end -->
 # How to: Use Styles to Customize the Appearance of Groups and Items in NavBarControl
 
 
